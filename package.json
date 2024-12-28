@@ -2,13 +2,17 @@
 	"name": "dribbble.js",
 	"description": "JavaScript SDK for Dribbble.",
 	"author": "hurby",
-	"version": "0.0.1",
+	"version": "0.1.0",
 	"license": "MIT",
 	"type": "module",
 	"sideEffects": false,
 	"main": "./dist/index.cjs",
 	"module": "./dist/index.js",
 	"types": "./dist/index.d.ts",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/hurby24/dribbble.js.git"
+	},
 	"exports": {
 		".": {
 			"require": {
@@ -37,7 +41,7 @@
 		"typecheck": "tsc --noEmit",
 		"version": "changeset version",
 		"version:dev": "changeset version --snapshop --no-git-tag --tag dev",
-		"release": "bunx build && changeset publish",
+		"release": "bun run build && changeset publish",
 		"release:dev": "bunx build && changeset publish --snapshot --no-git-tag --tag dev",
 		"prepare": "husky"
 	},
