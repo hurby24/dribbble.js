@@ -50,7 +50,8 @@
 		"@changesets/cli": "^2.27.11",
 		"@types/bun": "latest",
 		"husky": "^9.1.7",
-		"tsup": "^8.3.5"
+		"tsup": "^8.3.5",
+		"typedoc": "^0.27.6"
 	},
 	"peerDependencies": {
 		"typescript": "^5.0.0"
