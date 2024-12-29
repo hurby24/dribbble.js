@@ -18,23 +18,23 @@ This is the unofficial JavaScript SDK for [Dribbble](https://dribbble.com/), mak
 
 ```bash
 # bun
-bun install dribbble.js
+bun install @hurby/dribbble.js
 ```
 
 ```bash
 # pnpm
-pnpm install dribbble.js
+pnpm install @hurby/dribbble.js
 ```
 
 ```bash
 # npm
-npm install dribbble.js
+npm install @hurby/dribbble.js
 ```
 
 ## Usage
 
 ```tsx
-import { Dribbble, Users } from "dribbble.js";
+import { Dribbble, Users } from "@hurby/dribbble.js";
 
 // Setup Dribbble OAuth client
 const dribbbleClient = new Dribbble({

@@ -1,59 +1,66 @@
 {
-	"name": "dribbble.js",
-	"description": "JavaScript SDK for Dribbble.",
-	"author": "hurby",
-	"version": "0.2.0",
-	"license": "MIT",
-	"type": "module",
-	"sideEffects": false,
-	"main": "./dist/index.cjs",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/hurby24/dribbble.js.git"
-	},
-	"exports": {
-		".": {
-			"require": {
-				"types": "./dist/index.d.cts",
-				"default": "./dist/index.cjs"
-			},
-			"import": {
-				"types": "./dist/index.d.ts",
-				"default": "./dist/index.js"
-			}
-		}
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"keywords": ["api", "sdk", "dribbble", "javascript", "typescript"],
-	"files": ["dist", "README.md"],
-	"scripts": {
-		"dev": "bun run --watch examples/index.ts",
-		"build": "tsup",
-		"coverage": "bun test --coverage",
-		"format": "bunx biome format --write .",
-		"lint:fix": "bunx biome lint --write --unsafe ./src",
-		"lint": "bunx biome lint --write ./src",
-		"test": "bun test",
-		"typecheck": "tsc --noEmit",
-		"version": "changeset version",
-		"version:dev": "changeset version --snapshop --no-git-tag --tag dev",
-		"release": "bun run build && changeset publish",
-		"release:dev": "bunx build && changeset publish --snapshot --no-git-tag --tag dev",
-		"prepare": "husky"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.9.4",
-		"@changesets/cli": "^2.27.11",
-		"@types/bun": "latest",
-		"husky": "^9.1.7",
-		"tsup": "^8.3.5",
-		"typedoc": "^0.27.6"
-	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
-	}
+  "name": "@hurby/dribbble.js",
+  "description": "JavaScript SDK for Dribbble.",
+  "author": "hurby",
+  "version": "0.2.0",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hurby24/dribbble.js.git"
+  },
+  "exports": {
+    ".": {
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      },
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "api",
+    "sdk",
+    "dribbble",
+    "javascript",
+    "typescript"
+  ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dev": "bun run --watch examples/index.ts",
+    "build": "tsup",
+    "coverage": "bun test --coverage",
+    "format": "bunx biome format --write .",
+    "lint:fix": "bunx biome lint --write --unsafe ./src",
+    "lint": "bunx biome lint --write ./src",
+    "test": "bun test",
+    "typecheck": "tsc --noEmit",
+    "version": "changeset version",
+    "release": "bun run build && changeset publish",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "^2.27.11",
+    "@types/bun": "latest",
+    "husky": "^9.1.7",
+    "tsup": "^8.3.5",
+    "typedoc": "^0.27.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
 }
