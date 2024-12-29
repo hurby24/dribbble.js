@@ -3,28 +3,30 @@ import type { FetchOptions, FetchResponse } from "../internal/base/types";
 import type { User } from "./types";
 
 /**
- * Represents the Users API client for interacting with user-related endpoints.
+ * Provides methods for interacting with user-related API endpoints.
  *
  * @remarks
- * This class extends the {@link ApiClient} to provide methods specific to user data.
+ * This class extends {@link ApiClient} to interact with user-related endpoints, allowing you to fetch details about the currently authenticated user.
  *
  * @example
  * ```typescript
  * const usersClient = new Users();
- * const user = await usersClient.getUser();
- * console.log(user.data); // Access user details
+ *
+ * // Fetch user details
+ * const userResponse = await usersClient.getUser();
+ * console.log(userResponse.data.name); // Outputs the user's name
  * ```
  */
 export class Users extends ApiClient {
 	/**
 	 * Fetches details of the currently authenticated user.
 	 *
-	 * @returns A promise that resolves to a {@link FetchResponse} containing a {@link User} object.
+	 * @returns A promise that resolves to a {@link FetchResponse} containing the authenticated {@link User} object.
 	 *
 	 * @example
 	 * ```typescript
 	 * const userResponse = await usersClient.getUser();
-	 * console.log(userResponse.data.name); // Outputs the user's name
+	 * console.log(userResponse.data.email); // Outputs the user's email
 	 * ```
 	 */
 	public async getUser(): Promise<FetchResponse<User>> {

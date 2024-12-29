@@ -2,17 +2,59 @@ import type { DribbbleConfig, DribbbleAuthResponse } from "./types";
 const authorizationEndpoint = "https://dribbble.com/oauth/authorize";
 const tokenEndpoint = "https://dribbble.com/oauth/token";
 
+/**
+ * Provides an OAuth 2.0 client for interacting with Dribbble's authentication and token APIs.
+ *
+ * @remarks
+ * This class allows creating authorization URLs, validating authorization codes, and generating secure state strings.
+ *
+ * @example
+ * ```typescript
+ * const dribbble = new Dribbble({
+ *   clientId: "your-client-id",
+ *   clientSecret: "your-client-secret",
+ *   redirectURI: "https://your-redirect-uri.com"
+ * });
+ *
+ * const state = dribbble.generateState();
+ * const authURL = dribbble.createAuthorizationURL(state, ["public"]);
+ * console.log(authURL);
+ *
+ * // After receiving the authorization code:
+ * const authResponse = await dribbble.validateAuthorizationCode("auth-code");
+ * console.log(authResponse.accessToken);
+ * ```
+ */
 export class Dribbble {
 	private clientId: string;
 	private clientSecret: string;
 	private redirectURI: string;
 
+	/**
+	 * Creates a new instance of the Dribbble OAuth client.
+	 *
+	 * @param config - Configuration object containing the client ID, client secret, and redirect URI.
+	 */
 	constructor(config: DribbbleConfig) {
 		this.clientId = config.clientId;
 		this.clientSecret = config.clientSecret;
 		this.redirectURI = config.redirectURI;
 	}
 
+	/**
+	 * Generates an authorization URL for Dribbble's OAuth 2.0 flow.
+	 *
+	 * @param state - A unique string to maintain state between the request and callback.
+	 * @param scopes - An array of scopes to request from the user.
+	 * @returns The authorization URL for Dribbble.
+	 *
+	 * @example
+	 * ```typescript
+	 * const state = dribbble.generateState();
+	 * const authURL = dribbble.createAuthorizationURL(state, ["public", "write"]);
+	 * console.log(authURL);
+	 * ```
+	 */
 	public createAuthorizationURL(state: string, scopes: string[]): string {
 		const url = new URL(authorizationEndpoint);
 		url.searchParams.set("response_type", "code");
@@ -23,6 +65,18 @@ export class Dribbble {
 		return url.href;
 	}
 
+	/**
+	 * Validates an authorization code and retrieves an access token from Dribbble.
+	 *
+	 * @param code - The authorization code received from Dribbble.
+	 * @returns A promise that resolves to a {@link DribbbleAuthResponse} containing the access token and other details.
+	 *
+	 * @example
+	 * ```typescript
+	 * const authResponse = await dribbble.validateAuthorizationCode("auth-code");
+	 * console.log(authResponse.accessToken);
+	 * ```
+	 */
 	public async validateAuthorizationCode(
 		code: string,
 	): Promise<DribbbleAuthResponse> {
@@ -43,7 +97,7 @@ export class Dribbble {
 		request.headers.set("Accept", "application/json");
 
 		let fetchResponse: Response;
-		const response = {
+		const response: DribbbleAuthResponse = {
 			accessToken: null,
 			tokenType: "",
 			scope: "",
@@ -80,6 +134,17 @@ export class Dribbble {
 		return response;
 	}
 
+	/**
+	 * Generates a cryptographically secure state string for OAuth 2.0.
+	 *
+	 * @returns A Base64-encoded state string.
+	 *
+	 * @example
+	 * ```typescript
+	 * const state = dribbble.generateState();
+	 * console.log(state); // Use this as the `state` parameter in your auth request.
+	 * ```
+	 */
 	public generateState(): string {
 		const randomValues = crypto.getRandomValues(new Uint8Array(32));
 		return btoa(String.fromCharCode(...randomValues))
