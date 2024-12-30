@@ -28,17 +28,8 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"keywords": [
-		"api",
-		"sdk",
-		"dribbble",
-		"javascript",
-		"typescript"
-	],
-	"files": [
-		"dist",
-		"README.md"
-	],
+	"keywords": ["api", "sdk", "dribbble", "javascript", "typescript"],
+	"files": ["dist", "README.md"],
 	"scripts": {
 		"dev": "bun run --watch examples/index.ts",
 		"build": "tsup",
