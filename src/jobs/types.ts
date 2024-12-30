@@ -1,4 +1,4 @@
-import type { Team } from "../user/types";
+import type { Team } from "../users/types";
 
 type Category =
 	| "Graphic Designer"

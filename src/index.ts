@@ -3,8 +3,8 @@ export { Dribbble } from "./auth/dribbble";
 export type { DribbbleConfig, DribbbleAuthResponse } from "./auth/types";
 
 // User
-export { Users } from "./user";
-export type { User, Team } from "./user/types";
+export { Users } from "./users";
+export type { User, Team } from "./users/types";
 
 // Shots
 export { Shots } from "./shots";

@@ -1,5 +1,5 @@
 import type { Project } from "../projects/types";
-import type { Team } from "../user/types";
+import type { Team } from "../users/types";
 
 export interface Shot {
 	id: number;

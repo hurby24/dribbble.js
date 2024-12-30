@@ -33,11 +33,10 @@
 	"scripts": {
 		"dev": "bun run --watch examples/index.ts",
 		"build": "tsup",
-		"coverage": "bun test --coverage",
+		"test": "bun test",
 		"format": "bunx biome format --write .",
 		"lint:fix": "bunx biome lint --write --unsafe ./src",
 		"lint": "bunx biome lint --write ./src",
-		"test": "bun test",
 		"typecheck": "tsc --noEmit",
 		"version": "changeset version",
 		"release": "bun run build && changeset publish",
