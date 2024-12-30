@@ -2,7 +2,7 @@
 	"name": "@hurby/dribbble.js",
 	"description": "JavaScript SDK for Dribbble.",
 	"author": "hurby",
-	"version": "0.2.1",
+	"version": "1.0.0",
 	"license": "MIT",
 	"type": "module",
 	"sideEffects": false,
@@ -28,8 +28,17 @@
 	"publishConfig": {
 		"access": "public"
 	},
-	"keywords": ["api", "sdk", "dribbble", "javascript", "typescript"],
-	"files": ["dist", "README.md"],
+	"keywords": [
+		"api",
+		"sdk",
+		"dribbble",
+		"javascript",
+		"typescript"
+	],
+	"files": [
+		"dist",
+		"README.md"
+	],
 	"scripts": {
 		"dev": "bun run --watch examples/index.ts",
 		"build": "tsup",
